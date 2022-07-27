@@ -23,7 +23,7 @@
     1. In ./frontend/src/index.js 
         1. import store from './store/store.js'
         2. import { Provider } from 'react-redux'
-        3. using Provider from encapsulate (Wrap) the main Component from aplication (&gtAPP&lt or <HomeView>, ....)
-            1. <Provider store={store}> <RootElement> </Provider>
+        3. using Provider from encapsulate (Wrap) the main Component from aplication (&gtAPP /&lt or &gtHomeView /&lt, ....)
+            1. &gtProvider store={store}&lt &gtRootElement /&lt &gt/Provider&lt
         4. App configurado, agora vamos devemos 'disparar' as ações para ver o store modificar dinamicamente.
 
