@@ -27,7 +27,7 @@
             1. &gtProvider store={store}&lt &gtRootElement /&lt &gt/Provider&lt
         4. App configurado, agora vamos devemos 'disparar' as ações para ver o store modificar dinamicamente.
 
-3. Utilizando o state atual no component:
+3. Utilizando o state atual no component (useSelector):
     1. create the ./frontend/src/components/Calculator.jsx and inject on ./frontend/src/components/App
         1. Using the store in this component (Calculator.jsx) (jeito antigo) via props
             1. import { connect } from 'react-redux'
@@ -40,6 +40,16 @@
             1. import { useSelector } from 'react-redux'
             2. antes de retornar o HTML do component fazer:
                 const result = useSelector(function(state){ return state.calculator})
+
+4. Disparando ações e modificando o current state do store (useDispatch):
+    1. In this component (./frontend/src/components/Calculator.jsx)
+        1. Add the import { useSelector, useDispatch } from 'react-redux'
+        2. import { sum } from '../store/Calculator/Calculator.actions'
+        3. antes de retornar o HTML do component fazer:
+            1. const dispatch = useDispatch()
+        4. dentro do retorno HTML do component fazer:
+            1. onClick={()=>{ dispatch(sum(a, b))}} 
+                1. dispatch(sum(Number(document.querySelector("#calculatorInputA").value), Number(document.querySelector("#calculatorInputB").value)));
 
         
 

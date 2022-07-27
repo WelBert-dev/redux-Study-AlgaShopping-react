@@ -1,17 +1,22 @@
 import React from 'react';
 //import { connect } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-function Calculator({ result }) 
+import { sum } from '../store/Calculator/Calculator.actions';
+
+function Calculator() 
 {
+    const dispatch = useDispatch();
     const result = useSelector(state => state.calculator);
 
     return (
         <>
-            <input type="text" placeholder="a" />
-            <input type="text" placeholder="b" />
+            <input id="calculatorInputA" type="text" placeholder="a" />
+            <input id="calculatorInputB" type="text" placeholder="b" />
 
-            <button onClick={()=>{}}
+            <button onClick={()=>{
+                dispatch(sum(Number(document.querySelector("#calculatorInputA").value), Number(document.querySelector("#calculatorInputB").value)));
+            }}
             >Somar</button>
             <button>Subtrair</button>
 
