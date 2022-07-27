@@ -1,15 +1,34 @@
-export default function Calculator() {
-  return (
-    <div>
-        <input type="text" placeholder="a" />
-        <input type="text" placeholder="b" />
+import React from 'react';
+//import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-        <button>Somar</button>
-        <button>Subtrair</button>
+function Calculator({ result }) 
+{
+    const result = useSelector(state => state.calculator);
 
-        <div>
-            resultado
-        </div>       
-    </div>
-  )
+    return (
+        <>
+            <input type="text" placeholder="a" />
+            <input type="text" placeholder="b" />
+
+            <button onClick={()=>{}}
+            >Somar</button>
+            <button>Subtrair</button>
+
+            <div>
+                resultado: {result}
+            </div>       
+        </>
+    )
 }
+
+/*function mapStateToProps(state) 
+{
+    return {
+        result: state.calculator
+    }
+}*/
+
+// export default connect(mapStateToProps)(Calculator);
+
+export default Calculator;
