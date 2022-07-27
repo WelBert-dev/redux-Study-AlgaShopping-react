@@ -1,7 +1,7 @@
 # reduxStudyAlgaShopping-react
 
 
-1. Create the store folder in /src (./frontend/src/store)
+1. Create the store folder in ./frontend/src (./frontend/src/store)
     1. Create the src/store/Calculator folder
         1. Create the action: src/store/Calculator/Calculator.actions.js
             1. Action: Função que retorna uma ação
@@ -16,3 +16,14 @@
         1. import { createStore, combineReducers } from 'redux'
         2. import calculatorReducer from './Calculator/Calculator.reducer.js'
         3. rootReducer = combineReducers({calculator: calculatorReducer, ...})
+        4. const store = createStore(rootReducer)
+            1. Ou seja, o store é a execulção de todos os reducers criados (poriam ser calculator, product...)
+
+2. Injection the store in App
+    1. In ./frontend/src/index.js 
+        1. import store from './store/store.js'
+        2. import { Provider } from 'react-redux'
+        3. using Provider from encapsulate (Wrap) the main Component from aplication (<APP> or <HomeView>, ....)
+            1. <Provider store={store}> <RootElement> </Provider>
+        4. App configurado, agora vamos devemos 'disparar' as ações para ver o store modificar dinamicamente.
+
